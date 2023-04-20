@@ -1,0 +1,33 @@
+{
+  "name": "try-keysely",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm bundle.js && pnpm build && REPOSITORY_MODE=IN_MEMORY node bundle.js",
+    "start-pg": "rm bundle.js && pnpm build && REPOSITORY_MODE=PG node bundle.js",
+    "build": "esbuild src/adapters/primary/server.ts --bundle --platform=node --outfile=./bundle.js",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.15.11",
+    "@types/pg": "^8.6.6",
+    "babel-jest": "^29.5.0",
+    "esbuild": "^0.17.17",
+    "jest": "^29.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "fastify": "^4.15.0",
+    "kysely": "^0.24.2",
+    "pg": "^8.10.0"
+  }
+}
